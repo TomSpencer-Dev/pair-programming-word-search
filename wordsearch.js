@@ -3,22 +3,24 @@ const wordSearch = (letters, word) => {
   const horizontalJoin = letters.map(ls => ls.join(''));
   let verticalJoin = transpose(horizontalJoin);
   verticalJoin = verticalJoin.map(ls => ls.join(''));
-
+  //check horizontal array for the word and return true if found
   for (l of horizontalJoin) {
     if (l.includes(word)) {
       return true;
     }
   }
-
+  //check vertical array for word and return true if found
   for (l of verticalJoin) {
     if (l.includes(word)) {
       return true;
     }
   }
+
+  //return false if no word found
   return false;
 };
 
-//create variable containing a transposed array
+//transpose an array
 function transpose(matrix) {
   const numRows = matrix.length;
   const numCols = matrix[0].length;
